@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypothesis Testing | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#concept" class="sidebar-link">The Concept</a></li>
+                <li><a href="#steps" class="sidebar-link">5 Steps of Testing</a></li>
+                <li><a href="#z-test" class="sidebar-link">Z-Test (Mean)</a></li>
+                <li><a href="#t-test" class="sidebar-link">t-Test (Mean)</a></li>
+                <li><a href="#advanced" class="sidebar-link">Advanced Topics</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Hypothesis Testing</h1>
+            <p class="lead">The heart of inferential statistics. We use data to decide whether to accept or reject a
+                claim.</p>
+
+            <section id="concept">
+                <h2>Null vs Alternative Hypothesis</h2>
+                <ul>
+                    <li><strong>Null Hypothesis ($H_0$):</strong> The status quo. "No difference", "No effect". (e.g.,
+                        $\mu = 50$).</li>
+                    <li><strong>Alternative Hypothesis ($H_1$ or $H_a$):</strong> The claim we want to test. (e.g., $\mu
+                        \ne 50$ or $\mu > 50$).</li>
+                </ul>
+            </section>
+
+            <section id="steps">
+                <h2>The 5 Steps</h2>
+                <ol>
+                    <li>State $H_0$ and $H_1$.</li>
+                    <li>Select Level of Significance ($\alpha$, usually 0.05).</li>
+                    <li>Calculate the Test Statistic (Z or t).</li>
+                    <li>Determine the Critical Value or P-Value.</li>
+                    <li>Make a Decision (Reject or Fail to Reject $H_0$).</li>
+                </ol>
+            </section>
+
+            <section id="z-test">
+                <h2>Z-Test for Mean ($\sigma$ known)</h2>
+                <div class="formula-box">
+                    $$ Z = \frac{\bar{x} - \mu}{\sigma / \sqrt{n}} $$
+                </div>
+            </section>
+
+            <section id="t-test">
+                <h2>t-Test for Mean ($\sigma$ unknown)</h2>
+                <p>Used when $\sigma$ is unknown. We use $s$ (sample std dev) instead.</p>
+                <div class="formula-box">
+                    $$ t = \frac{\bar{x} - \mu}{s / \sqrt{n}} $$
+                </div>
+            </section>
+
+            <section id="advanced">
+                <h2>Advanced Topics</h2>
+                <p>Dive deeper into the nuances of testing:</p>
+                <ul>
+                    <li><a href="errors-and-power.html">Type I & II Errors and Power</a></li>
+                    <li><a href="two-population-inference.html">Comparing Two Populations</a></li>
+                    <li><a href="matched-pairs.html">Matched Pairs t-Test</a></li>
+                </ul>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> If we Reject $H_0$ when it is actually true, what error have we made?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="true">Type I Error</li>
+                        <li class="quiz-option" data-correct="false">Type II Error</li>
+                        <li class="quiz-option" data-correct="false">Standard Error</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

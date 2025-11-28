@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management (PERT/CPM) | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                        <a href="project-management.html" class="dropdown-link">Project Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="auto-graph.html" class="dropdown-link">Auto Graph</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Project Mgmt</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#intro" class="sidebar-link">Introduction</a></li>
+                <li><a href="#pert" class="sidebar-link">PERT</a></li>
+                <li><a href="#cpm" class="sidebar-link">CPM</a></li>
+                <li><a href="#critical-path" class="sidebar-link">Critical Path</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Project Management (PERT/CPM)</h1>
+            <p class="lead">Planning, scheduling, and controlling projects to ensure they are completed on time and
+                within budget.</p>
+
+            <section id="intro">
+                <h2>Introduction</h2>
+                <p>Project management involves managing complex projects with many interconnected tasks. Two common
+                    quantitative techniques used are:</p>
+                <ul>
+                    <li><strong>PERT (Program Evaluation and Review Technique):</strong> Used when task times are
+                        uncertain (probabilistic).</li>
+                    <li><strong>CPM (Critical Path Method):</strong> Used when task times are known (deterministic).
+                    </li>
+                </ul>
+            </section>
+
+            <section id="pert">
+                <h2>PERT (Program Evaluation and Review Technique)</h2>
+                <p>PERT uses three time estimates for each activity to calculate an expected time and variance.</p>
+                <div class="definition-box">
+                    <h3>Time Estimates</h3>
+                    <ul>
+                        <li><strong>Optimistic time ($a$):</strong> Minimum time if everything goes perfectly.</li>
+                        <li><strong>Most likely time ($m$):</strong> The normal time required.</li>
+                        <li><strong>Pessimistic time ($b$):</strong> Maximum time if things go wrong.</li>
+                    </ul>
+                </div>
+                <div class="formula-box">
+                    <p><strong>Expected Time ($t_e$):</strong> $$ t_e = \frac{a + 4m + b}{6} $$</p>
+                    <p><strong>Variance ($v$):</strong> $$ v = \left(\frac{b - a}{6}\right)^2 $$</p>
+                </div>
+            </section>
+
+            <section id="cpm">
+                <h2>CPM (Critical Path Method)</h2>
+                <p>CPM assumes activity times are known with certainty. It focuses on the trade-off between the cost of
+                    the project and its completion time.</p>
+            </section>
+
+            <section id="critical-path">
+                <h2>The Critical Path</h2>
+                <p>The <strong>Critical Path</strong> is the longest path through the project network. It determines the
+                    shortest possible time to complete the project.</p>
+                <div class="example-box">
+                    <p><strong>Key Concept:</strong> Any delay in a task on the critical path will delay the entire
+                        project. Tasks not on the critical path have "slack" or "float" time.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

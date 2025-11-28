@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics of Statistics | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#definition" class="sidebar-link">What is Statistics?</a></li>
+                <li><a href="#types" class="sidebar-link">Types of Statistics</a></li>
+                <li><a href="#data-types" class="sidebar-link">Data Types & Scales</a></li>
+                <li><a href="#pop-sample" class="sidebar-link">Population vs Sample</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Basics of Statistics</h1>
+            <p class="lead">Statistics is the art and science of collecting, analyzing, interpreting, presenting, and
+                organizing data.</p>
+
+            <section id="definition">
+                <h2>Why Study Statistics?</h2>
+                <p>In business, we make decisions under uncertainty. Statistics provides the tools to minimize risk and
+                    make data-driven choices.</p>
+            </section>
+
+            <section id="types">
+                <h2>Types of Statistics</h2>
+                <div class="definition-box">
+                    <ul>
+                        <li><strong>Descriptive Statistics:</strong> Summarizing data (e.g., "The average salary is
+                            $50,000").</li>
+                        <li><strong>Inferential Statistics:</strong> Making predictions about a population based on a
+                            sample (e.g., "Based on the survey, we predict 60% of voters will win").</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="data-types">
+                <h2>Data Types & Scales</h2>
+                <p>Knowing your data type determines which test you can use.</p>
+
+                <h3>1. Qualitative (Categorical)</h3>
+                <ul>
+                    <li><strong>Nominal:</strong> Names/Labels (e.g., Gender, Eye Color). No order.</li>
+                    <li><strong>Ordinal:</strong> Ordered categories (e.g., Ratings: Poor, Fair, Good).</li>
+                </ul>
+
+                <h3>2. Quantitative (Numerical)</h3>
+                <ul>
+                    <li><strong>Interval:</strong> Differences are meaningful, but no true zero (e.g., Temperature in
+                        Celsius).</li>
+                    <li><strong>Ratio:</strong> True zero exists (e.g., Height, Weight, Salary).</li>
+                </ul>
+            </section>
+
+            <section id="pop-sample">
+                <h2>Population vs Sample</h2>
+                <div class="example-box">
+                    <div class="example-title">Analogy</div>
+                    <p><strong>Population:</strong> The entire soup in the pot.</p>
+                    <p><strong>Sample:</strong> A spoonful of the soup.</p>
+                    <p><strong>Parameter:</strong> A fact about the whole pot (e.g., "The soup is salty"). Symbol: $\mu$
+                        (mean).</p>
+                    <p><strong>Statistic:</strong> A fact about the spoonful (e.g., "This spoon is salty"). Symbol:
+                        $\bar{x}$ (mean).</p>
+                </div>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> "Zip Code" is an example of which level of measurement?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="true">Nominal</li>
+                        <li class="quiz-option" data-correct="false">Ordinal</li>
+                        <li class="quiz-option" data-correct="false">Interval</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> A numerical value describing a sample is called a:</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Parameter</li>
+                        <li class="quiz-option" data-correct="true">Statistic</li>
+                        <li class="quiz-option" data-correct="false">Variable</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

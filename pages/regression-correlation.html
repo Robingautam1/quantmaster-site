@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression & Correlation | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#correlation" class="sidebar-link">Correlation (r)</a></li>
+                <li><a href="#regression" class="sidebar-link">Simple Linear Regression</a></li>
+                <li><a href="#r-squared" class="sidebar-link">Coeff of Determination ($R^2$)</a></li>
+                <li><a href="#advanced" class="sidebar-link">Advanced Topics</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Regression & Correlation</h1>
+            <p class="lead">Understanding relationships between variables. Does studying more lead to higher grades?</p>
+
+            <section id="correlation">
+                <h2>Correlation Coefficient ($r$)</h2>
+                <p>Measures the strength and direction of a linear relationship. Ranges from -1 to +1.</p>
+                <ul>
+                    <li>$r = 1$: Perfect positive correlation.</li>
+                    <li>$r = -1$: Perfect negative correlation.</li>
+                    <li>$r = 0$: No linear correlation.</li>
+                </ul>
+            </section>
+
+            <section id="regression">
+                <h2>Simple Linear Regression</h2>
+                <p>Fitting a straight line to the data to predict $Y$ based on $X$.</p>
+                <div class="formula-box">
+                    $$ \hat{Y} = b_0 + b_1X $$
+                    <br>
+                    $b_0$ = Y-intercept<br>
+                    $b_1$ = Slope
+                </div>
+                <p><strong>Method of Least Squares:</strong> Minimizes the sum of squared errors (residuals).</p>
+            </section>
+
+            <section id="r-squared">
+                <h2>Coefficient of Determination ($R^2$)</h2>
+                <p>The percentage of variation in $Y$ that is explained by $X$.</p>
+                <p>If $r = 0.8$, then $R^2 = 0.64$. This means 64% of the change in $Y$ is due to $X$.</p>
+            </section>
+
+            <section id="advanced">
+                <h2>Advanced Topics</h2>
+                <ul>
+                    <li><a href="multiple-regression.html">Multiple Regression (More than one X)</a></li>
+                    <li><a href="forecasting.html">Forecasting (Time Series)</a></li>
+                </ul>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> If $r = -0.9$, the relationship is:</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Weak and Positive</li>
+                        <li class="quiz-option" data-correct="true">Strong and Negative</li>
+                        <li class="quiz-option" data-correct="false">Weak and Negative</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimation & Confidence Intervals | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#point-estimation" class="sidebar-link">Point Estimation</a></li>
+                <li><a href="#ci-intro" class="sidebar-link">Confidence Intervals</a></li>
+                <li><a href="#ci-mean-known" class="sidebar-link">CI for Mean ($\sigma$ known)</a></li>
+                <li><a href="#ci-mean-unknown" class="sidebar-link">CI for Mean ($\sigma$ unknown)</a></li>
+                <li><a href="#ci-proportion" class="sidebar-link">CI for Proportion</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Estimation & Confidence Intervals</h1>
+            <p class="lead">How do we guess population parameters from sample data? We use estimation. It's the bridge
+                between descriptive statistics and hypothesis testing.</p>
+
+            <section id="point-estimation">
+                <h2>Point Estimation</h2>
+                <p>A <strong>Point Estimate</strong> is a single value used to approximate a population parameter. For
+                    example, if you survey 100 customers and their average age is 35, you estimate the average age of
+                    <em>all</em> customers is 35.</p>
+
+                <div class="definition-box">
+                    <strong>Properties of a Good Estimator:</strong>
+                    <ul>
+                        <li><strong>Unbiasedness:</strong> The expected value of the estimator equals the parameter.
+                            (e.g., Sample mean $\bar{x}$ is an unbiased estimator of $\mu$).</li>
+                        <li><strong>Efficiency:</strong> It has the smallest variance among all unbiased estimators.
+                        </li>
+                        <li><strong>Consistency:</strong> As sample size increases, the estimator gets closer to the
+                            parameter.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="ci-intro">
+                <h2>Confidence Intervals (CI)</h2>
+                <p>A point estimate is rarely exactly right. A <strong>Confidence Interval</strong> gives us a range of
+                    values where we believe the true parameter lies, with a certain level of confidence (usually 90%,
+                    95%, or 99%).</p>
+                <p>Think of it as casting a net. You are 95% sure the fish (true mean) is inside the net.</p>
+                <div class="formula-box">
+                    $$ \text{Point Estimate} \pm \text{Margin of Error} $$
+                </div>
+            </section>
+
+            <section id="ci-mean-known">
+                <h2>CI for Population Mean ($\sigma$ known)</h2>
+                <p>When we know the population standard deviation ($\sigma$) and sample size is large ($n \ge 30$), we
+                    use the <strong>Z-distribution</strong>.</p>
+                <div class="formula-box">
+                    $$ \bar{x} \pm Z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right) $$
+                </div>
+                <p>Common Critical Values ($Z_{\alpha/2}$):</p>
+                <ul>
+                    <li>90% Confidence: 1.645</li>
+                    <li>95% Confidence: 1.96</li>
+                    <li>99% Confidence: 2.576</li>
+                </ul>
+
+                <div class="example-box">
+                    <div class="example-title">Example: Light Bulb Life</div>
+                    <p>A factory produces bulbs. We know $\sigma = 100$ hours. We test 50 bulbs ($n=50$) and find mean
+                        life $\bar{x} = 900$ hours. Find the 95% CI.</p>
+                    <p>$$ 900 \pm 1.96 \left( \frac{100}{\sqrt{50}} \right) $$</p>
+                    <p>$$ 900 \pm 1.96(14.14) = 900 \pm 27.7 $$</p>
+                    <p><strong>Result:</strong> [872.3, 927.7] hours.</p>
+                </div>
+            </section>
+
+            <section id="ci-mean-unknown">
+                <h2>CI for Population Mean ($\sigma$ unknown)</h2>
+                <p>In real life, we rarely know $\sigma$. We use the sample standard deviation ($s$) instead. Because of
+                    this extra uncertainty, we use the <strong>t-distribution</strong>.</p>
+                <div class="formula-box">
+                    $$ \bar{x} \pm t_{\alpha/2, n-1} \left( \frac{s}{\sqrt{n}} \right) $$
+                </div>
+                <p>Note: The t-distribution is flatter than the Z-distribution. As $n$ increases, it looks more like Z.
+                </p>
+            </section>
+
+            <section id="ci-proportion">
+                <h2>CI for Population Proportion</h2>
+                <p>Used for categorical data (e.g., "What % of voters support Candidate A?").</p>
+                <div class="formula-box">
+                    $$ \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+                </div>
+                <div class="example-box">
+                    <div class="example-title">Marketing Survey</div>
+                    <p>In a survey of 500 people, 300 said they like the new logo ($\hat{p} = 300/500 = 0.6$). Find 95%
+                        CI.</p>
+                    <p>$$ 0.6 \pm 1.96 \sqrt{\frac{0.6(0.4)}{500}} $$</p>
+                    <p>$$ 0.6 \pm 1.96(0.0219) = 0.6 \pm 0.043 $$</p>
+                    <p><strong>Result:</strong> [55.7%, 64.3%].</p>
+                </div>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> If you increase the sample size ($n$), what happens to the width of the
+                        confidence interval?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">It gets wider</li>
+                        <li class="quiz-option" data-correct="true">It gets narrower (more precise)</li>
+                        <li class="quiz-option" data-correct="false">Stays the same</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> Which distribution do you use when $\sigma$ is unknown and $n < 30$?</p>
+                            <ul class="quiz-options">
+                                <li class="quiz-option" data-correct="false">Normal (Z)</li>
+                                <li class="quiz-option" data-correct="true">Student's t</li>
+                                <li class="quiz-option" data-correct="false">Chi-Square</li>
+                            </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

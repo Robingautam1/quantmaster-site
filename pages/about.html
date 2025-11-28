@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+        }
+
+        .mission-card {
+            background: #f0f9ff;
+            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                        <a href="project-management.html" class="dropdown-link">Project Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="auto-graph.html" class="dropdown-link">Auto Graph</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 4rem 2rem;">
+
+        <div class="about-hero">
+            <h1>About QuantMaster</h1>
+            <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">Bridging the gap between theory and real
+                business applications.</p>
+        </div>
+
+        <section id="our-story">
+            <h2><i class="fas fa-book-open" style="color: var(--accent);"></i> Our Story</h2>
+            <p>Statistics shouldn't be scary. QuantMaster was created to make quantitative management accessible for
+                students, professionals, and anyone preparing for competitive or MBA exams.</p>
+            <p>We believe in learning by doing. That's why we combine simple explanations with <strong>interactive
+                    tools</strong>, <strong>calculators</strong>, and <strong>real-world examples</strong> from
+                marketing, operations, and finance.</p>
+
+            <div class="mission-card">
+                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                <p style="margin-bottom: 0;">To provide a structured, easy-to-follow resource that covers concepts from
+                    absolute basics to master's level, following real MBA curriculum standards. <strong>Built by
+                        learners, for learners.</strong></p>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top: 4rem;">
+            <h2><i class="fas fa-paper-plane" style="color: var(--accent);"></i> Get in Touch</h2>
+            <p>Have a suggestion, spotted an error, or want to collaborate? We’d love to hear from you.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Us</h3>
+                    <p>robingautam8292@gmail.com</p>
+                    <a href="mailto:robingautam8292@gmail.com" class="btn btn-primary" style="margin-top: 1rem;">Send
+                        Email</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                    <h3>Connect</h3>
+                    <p>Follow us for updates and tips.</p>
+                    <button class="btn btn-outline"
+                        style="margin-top: 1rem; color: var(--primary); border-color: var(--border);">Coming
+                        Soon</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy"
+            style="margin-top: 4rem; background: #f8fafc; padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+            <h2><i class="fas fa-shield-alt" style="color: var(--success);"></i> Privacy Policy</h2>
+            <p>We respect your privacy. This website does not collect personally identifiable information unless you
+                voluntarily provide it via email.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="display: flex; gap: 1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--success); margin-top: 5px;"></i>
+                    <div>
+                        <strong>No Data Storage</strong>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Our calculators and tools run entirely in your
+                            browser. We do not store your input data.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--success); margin-top: 5px;"></i>
+                    <div>
+                        <strong>No Selling</strong>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">We never sell, rent, or share any user data with
+                            third parties.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--success); margin-top: 5px;"></i>
+                    <div>
+                        <strong>Cookies</strong>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">We may use basic anonymous cookies solely to
+                            improve website performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

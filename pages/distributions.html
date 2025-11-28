@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributions | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#discrete" class="sidebar-link">Discrete Distributions</a></li>
+                <li><a href="#continuous" class="sidebar-link">Continuous Distributions</a></li>
+                <li><a href="#normal" class="sidebar-link">The Normal Distribution</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Probability Distributions</h1>
+            <p class="lead">A distribution describes how probabilities are distributed over the values of a random
+                variable.</p>
+
+            <section id="discrete">
+                <h2>Discrete Distributions</h2>
+                <p>For variables that can be counted (e.g., number of customers).</p>
+
+                <h3>Binomial Distribution</h3>
+                <p>Number of successes in $n$ trials.</p>
+                <div class="formula-box">
+                    $$ P(x) = \binom{n}{x} p^x (1-p)^{n-x} $$
+                </div>
+
+                <h3>Poisson Distribution</h3>
+                <p>Number of events in a fixed interval (time/space).</p>
+                <div class="formula-box">
+                    $$ P(x) = \frac{e^{-\lambda} \lambda^x}{x!} $$
+                </div>
+            </section>
+
+            <section id="continuous">
+                <h2>Continuous Distributions</h2>
+                <p>For variables that can be measured (e.g., time, weight).</p>
+                <p>Probability is area under the curve.</p>
+            </section>
+
+            <section id="normal">
+                <h2>The Normal Distribution (Bell Curve)</h2>
+                <p>The most important distribution in statistics. Symmetric, bell-shaped.</p>
+                <ul>
+                    <li>68% of data within $\pm 1\sigma$</li>
+                    <li>95% of data within $\pm 2\sigma$</li>
+                    <li>99.7% of data within $\pm 3\sigma$</li>
+                </ul>
+
+                <h3>Standard Normal (Z)</h3>
+                <p>Mean = 0, Std Dev = 1.</p>
+                <div class="formula-box">
+                    $$ Z = \frac{X - \mu}{\sigma} $$
+                </div>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> Which distribution models the number of arrivals at a bank per hour?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Binomial</li>
+                        <li class="quiz-option" data-correct="true">Poisson</li>
+                        <li class="quiz-option" data-correct="false">Normal</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

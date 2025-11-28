@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Regression | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#model" class="sidebar-link">The Model</a></li>
+                <li><a href="#r-squared" class="sidebar-link">Adjusted R-Squared</a></li>
+                <li><a href="#dummy" class="sidebar-link">Dummy Variables</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Multiple Regression Analysis</h1>
+            <p class="lead">Real life is complex. Sales depend on price, AND advertising, AND season. Multiple
+                regression handles this.</p>
+
+            <section id="model">
+                <h2>The Multiple Regression Equation</h2>
+                <div class="formula-box">
+                    $$ \hat{Y} = b_0 + b_1X_1 + b_2X_2 + ... + b_kX_k $$
+                </div>
+                <p><strong>Interpretation of Coefficients ($b_i$):</strong></p>
+                <p>The change in $Y$ for a one-unit increase in $X_i$, <em>holding all other variables constant</em>.
+                </p>
+
+                <div class="example-box">
+                    <div class="example-title">House Price Model</div>
+                    <p>$\hat{Y} = 50,000 + 100(\text{SqFt}) + 5000(\text{Bedrooms})$</p>
+                    <p>If you add one bedroom ($X_2$), price increases by $5000, assuming size ($X_1$) stays the same.
+                    </p>
+                </div>
+            </section>
+
+            <section id="r-squared">
+                <h2>Adjusted $R^2$</h2>
+                <p>In simple regression, $R^2$ tells us the % of variance explained. But if you add junk variables,
+                    $R^2$ always goes up.</p>
+                <p><strong>Adjusted $R^2$</strong> penalizes you for adding useless variables. It only goes up if the
+                    new variable actually improves the model.</p>
+            </section>
+
+            <section id="dummy">
+                <h2>Dummy Variables</h2>
+                <p>How do we include categorical data (e.g., "Has Pool" vs "No Pool")?</p>
+                <p>We use 0 and 1.</p>
+                <ul>
+                    <li>$X_3 = 1$ if Pool</li>
+                    <li>$X_3 = 0$ if No Pool</li>
+                </ul>
+                <p>If $b_3 = 10,000$, then having a pool adds $10k to the value.</p>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> Why do we use Adjusted $R^2$ instead of regular $R^2$ in multiple
+                        regression?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">It's easier to calculate</li>
+                        <li class="quiz-option" data-correct="true">To account for the number of predictors</li>
+                        <li class="quiz-option" data-correct="false">It is always higher</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

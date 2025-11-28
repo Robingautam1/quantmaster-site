@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/calculators.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Calculators</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#descriptive" class="sidebar-link" onclick="showCalculator('descriptive')">Descriptive
+                        Stats</a></li>
+                <li><a href="#confidence" class="sidebar-link" onclick="showCalculator('confidence')">Confidence
+                        Interval</a></li>
+                <li><a href="#hypothesis" class="sidebar-link" onclick="showCalculator('hypothesis')">Hypothesis Test
+                        (Z)</a></li>
+                <li><a href="#regression" class="sidebar-link" onclick="showCalculator('regression')">Simple
+                        Regression</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Interactive Calculators</h1>
+            <p class="lead">Crunch the numbers instantly.</p>
+
+            <!-- Descriptive Stats Calculator -->
+            <div id="calc-descriptive" class="calculator-section">
+                <h2><i class="fas fa-calculator"></i> Descriptive Statistics</h2>
+                <p>Enter numbers separated by commas (e.g., 10, 20, 30, 40).</p>
+                <div class="calc-input-group">
+                    <label>Data Set:</label>
+                    <input type="text" id="desc-data" placeholder="10, 20, 30...">
+                </div>
+                <button class="btn btn-primary" onclick="calculateDescriptive()">Calculate</button>
+                <div id="desc-result" class="calc-result" style="display:none;">
+                    <p><strong>Mean:</strong> <span id="res-mean"></span></p>
+                    <p><strong>Median:</strong> <span id="res-median"></span></p>
+                    <p><strong>Mode:</strong> <span id="res-mode"></span></p>
+                    <p><strong>Std Dev (Sample):</strong> <span id="res-sd"></span></p>
+                    <p><strong>Variance (Sample):</strong> <span id="res-var"></span></p>
+                    <p><strong>Count (n):</strong> <span id="res-n"></span></p>
+                </div>
+            </div>
+
+            <!-- Confidence Interval Calculator -->
+            <div id="calc-confidence" class="calculator-section" style="display:none;">
+                <h2><i class="fas fa-ruler-horizontal"></i> Confidence Interval for Mean</h2>
+                <div class="calc-input-group">
+                    <label>Sample Mean ($\bar{x}$):</label>
+                    <input type="number" id="ci-mean">
+                </div>
+                <div class="calc-input-group">
+                    <label>Std Dev ($\sigma$ or $s$):</label>
+                    <input type="number" id="ci-sd">
+                </div>
+                <div class="calc-input-group">
+                    <label>Sample Size ($n$):</label>
+                    <input type="number" id="ci-n">
+                </div>
+                <div class="calc-input-group">
+                    <label>Confidence Level (%):</label>
+                    <select id="ci-level">
+                        <option value="0.90">90%</option>
+                        <option value="0.95" selected>95%</option>
+                        <option value="0.99">99%</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="calculateCI()">Calculate</button>
+                <div id="ci-result" class="calc-result" style="display:none;">
+                    <p><strong>Margin of Error:</strong> <span id="res-moe"></span></p>
+                    <p><strong>Interval:</strong> [<span id="res-ci-lower"></span>, <span id="res-ci-upper"></span>]</p>
+                </div>
+            </div>
+
+            <!-- Hypothesis Test Calculator -->
+            <div id="calc-hypothesis" class="calculator-section" style="display:none;">
+                <h2><i class="fas fa-flask"></i> Z-Test for Mean</h2>
+                <div class="calc-input-group">
+                    <label>Null Hypothesis Mean ($\mu_0$):</label>
+                    <input type="number" id="ht-mu">
+                </div>
+                <div class="calc-input-group">
+                    <label>Sample Mean ($\bar{x}$):</label>
+                    <input type="number" id="ht-xbar">
+                </div>
+                <div class="calc-input-group">
+                    <label>Population Std Dev ($\sigma$):</label>
+                    <input type="number" id="ht-sigma">
+                </div>
+                <div class="calc-input-group">
+                    <label>Sample Size ($n$):</label>
+                    <input type="number" id="ht-n">
+                </div>
+                <button class="btn btn-primary" onclick="calculateZTest()">Calculate</button>
+                <div id="ht-result" class="calc-result" style="display:none;">
+                    <p><strong>Z-Score:</strong> <span id="res-z"></span></p>
+                    <p><strong>P-Value (Two-tailed):</strong> <span id="res-p"></span></p>
+                </div>
+            </div>
+
+            <!-- Regression Calculator -->
+            <div id="calc-regression" class="calculator-section" style="display:none;">
+                <h2><i class="fas fa-chart-line"></i> Simple Linear Regression</h2>
+                <p>Enter X and Y values separated by commas. Must have same number of values.</p>
+                <div class="calc-input-group">
+                    <label>X Values:</label>
+                    <input type="text" id="reg-x" placeholder="1, 2, 3...">
+                </div>
+                <div class="calc-input-group">
+                    <label>Y Values:</label>
+                    <input type="text" id="reg-y" placeholder="2, 4, 6...">
+                </div>
+                <button class="btn btn-primary" onclick="calculateRegression()">Calculate</button>
+                <div id="reg-result" class="calc-result" style="display:none;">
+                    <p><strong>Equation:</strong> $\hat{Y} = $ <span id="res-b0"></span> + <span id="res-b1"></span>$X$
+                    </p>
+                    <p><strong>Correlation ($r$):</strong> <span id="res-r"></span></p>
+                    <p><strong>$R^2$:</strong> <span id="res-r2"></span></p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

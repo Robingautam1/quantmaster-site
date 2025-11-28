@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matched Pairs | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#concept" class="sidebar-link">Dependent Samples</a></li>
+                <li><a href="#test" class="sidebar-link">Paired t-Test</a></li>
+                <li><a href="#example" class="sidebar-link">Example</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Matched Pairs (Dependent Samples)</h1>
+            <p class="lead">What if the two groups are related? Like "Before & After" measurements on the same person?
+                We use a Paired t-Test.</p>
+
+            <section id="concept">
+                <h2>Dependent vs Independent Samples</h2>
+                <ul>
+                    <li><strong>Independent:</strong> Group A (Men) vs Group B (Women). No relation between individuals.
+                    </li>
+                    <li><strong>Dependent (Paired):</strong> Weight Before Diet vs Weight After Diet for the
+                        <em>same</em> people. Or Twins. Or Husbands vs Wives.</li>
+                </ul>
+            </section>
+
+            <section id="test">
+                <h2>The Paired t-Test</h2>
+                <p>We calculate the <strong>difference ($d$)</strong> for each pair, then test if the average difference
+                    ($\bar{d}$) is zero.</p>
+                <div class="formula-box">
+                    $$ t = \frac{\bar{d} - \mu_d}{s_d / \sqrt{n}} $$
+                    <br>
+                    $\bar{d}$ = Mean of differences<br>
+                    $s_d$ = Standard deviation of differences<br>
+                    $n$ = Number of pairs
+                </div>
+            </section>
+
+            <section id="example">
+                <h2>Example: Weight Loss Program</h2>
+                <div class="example-box">
+                    <p>We measure 5 people before and after a diet.</p>
+                    <table>
+                        <tr>
+                            <th>Person</th>
+                            <th>Before</th>
+                            <th>After</th>
+                            <th>Diff ($d$)</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>200</td>
+                            <td>190</td>
+                            <td>-10</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>180</td>
+                            <td>175</td>
+                            <td>-5</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>210</td>
+                            <td>200</td>
+                            <td>-10</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>190</td>
+                            <td>188</td>
+                            <td>-2</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>170</td>
+                            <td>165</td>
+                            <td>-5</td>
+                        </tr>
+                    </table>
+                    <p>Mean diff $\bar{d} = -6.4$. Std Dev $s_d = 3.58$.</p>
+                    <p>$$ t = \frac{-6.4 - 0}{3.58 / \sqrt{5}} = \frac{-6.4}{1.6} = -4.0 $$</p>
+                    <p>Critical t ($df=4, \alpha=0.05$) is 2.776. Since $|-4.0| > 2.776$, we reject $H_0$. The diet
+                        works!</p>
+                </div>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> In a paired t-test, what are we actually analyzing?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">The means of both groups separately</li>
+                        <li class="quiz-option" data-correct="true">The differences between the pairs</li>
+                        <li class="quiz-option" data-correct="false">The variances of the groups</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

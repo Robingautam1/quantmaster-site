@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Graph Generator | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/auto-graph.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="auto-graph.html" class="dropdown-link">Auto Graph</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Tools</h3>
+            <ul class="sidebar-nav">
+                <li><a href="calculators.html" class="sidebar-link">Calculators</a></li>
+                <li><a href="visualizations.html" class="sidebar-link">Visualizations</a></li>
+                <li><a href="auto-graph.html" class="sidebar-link active">Auto Graph</a></li>
+                <li><a href="formulas-sheet.html" class="sidebar-link">Formulas Sheet</a></li>
+                <li><a href="tables.html" class="sidebar-link">Statistical Tables</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Auto Graph Generator</h1>
+            <p class="lead">Describe your data in plain English, and we'll visualize it for you.</p>
+
+            <section id="input-section">
+                <div class="calc-container">
+                    <div class="form-group">
+                        <label for="graph-prompt" class="form-label">Describe your graph:</label>
+                        <textarea id="graph-prompt" class="form-input" rows="6" placeholder="Examples:
+- Sales increased from 50 to 75 in 4 years.
+- Compare revenue: Amazon 90, Flipkart 50, Meesho 30.
+- Plot relationship between X=[1,2,3] and Y=[2,4,6].
+- 5, 7, 9, 6, 4, 8"></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="generateGraph()">Generate Graph</button>
+                </div>
+            </section>
+
+            <section id="output-section" style="display:none;">
+                <div class="card">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 id="graph-title">Generated Graph</h3>
+                        <button class="btn btn-outline" onclick="downloadGraph()"
+                            style="font-size: 0.8rem; padding: 0.5rem 1rem;">
+                            <i class="fas fa-download"></i> Download PNG
+                        </button>
+                    </div>
+                    <div style="height: 400px; position: relative;">
+                        <canvas id="autoChart"></canvas>
+                    </div>
+                    <div class="definition-box" style="margin-top: 2rem;">
+                        <h4>Analysis</h4>
+                        <p id="graph-explanation"></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

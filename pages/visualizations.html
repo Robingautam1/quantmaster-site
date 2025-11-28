@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/visualizations.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Visuals</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#normal" class="sidebar-link">Normal Distribution</a></li>
+                <li><a href="#clt" class="sidebar-link">Central Limit Theorem</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Interactive Visualizations</h1>
+            <p class="lead">See the concepts in action.</p>
+
+            <!-- Normal Distribution -->
+            <section id="normal">
+                <h2>Normal Distribution Explorer</h2>
+                <p>Adjust the Mean ($\mu$) and Standard Deviation ($\sigma$) to see how the curve changes.</p>
+
+                <div class="calc-input-group">
+                    <label>Mean ($\mu$): <span id="val-mu">0</span></label>
+                    <input type="range" id="range-mu" min="-10" max="10" step="0.5" value="0"
+                        oninput="updateNormalChart()">
+                </div>
+                <div class="calc-input-group">
+                    <label>Std Dev ($\sigma$): <span id="val-sigma">1</span></label>
+                    <input type="range" id="range-sigma" min="0.5" max="5" step="0.1" value="1"
+                        oninput="updateNormalChart()">
+                </div>
+
+                <div style="height: 400px;">
+                    <canvas id="normalChart"></canvas>
+                </div>
+            </section>
+
+            <!-- CLT -->
+            <section id="clt">
+                <h2>Central Limit Theorem (CLT) Demo</h2>
+                <p>Sample from a <strong>Uniform Distribution</strong> (flat shape). As you increase sample size ($n$),
+                    the distribution of means becomes Normal.</p>
+
+                <div class="calc-input-group">
+                    <label>Sample Size ($n$):</label>
+                    <select id="clt-n">
+                        <option value="2">n = 2</option>
+                        <option value="5">n = 5</option>
+                        <option value="30">n = 30</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="runCLT()">Draw 1000 Samples</button>
+
+                <div style="height: 400px;">
+                    <canvas id="cltChart"></canvas>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

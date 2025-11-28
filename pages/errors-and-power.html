@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors & Power | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#errors" class="sidebar-link">Type I & II Errors</a></li>
+                <li><a href="#power" class="sidebar-link">Power of a Test</a></li>
+                <li><a href="#p-value" class="sidebar-link">P-Value Approach</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Errors & Power in Hypothesis Testing</h1>
+            <p class="lead">No statistical test is perfect. We must understand the risks of making the wrong decision.
+            </p>
+
+            <section id="errors">
+                <h2>Type I and Type II Errors</h2>
+                <p>When we make a decision to Reject or Fail to Reject $H_0$, there are four possibilities:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Decision</th>
+                            <th>$H_0$ is True</th>
+                            <th>$H_0$ is False</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Reject $H_0$</strong></td>
+                            <td><span style="color: var(--danger)">Type I Error ($\alpha$)</span><br>False Positive</td>
+                            <td><span style="color: var(--success)">Correct Decision ($1-\beta$)</span><br>Power</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fail to Reject $H_0$</strong></td>
+                            <td><span style="color: var(--success)">Correct Decision ($1-\alpha$)</span><br>Confidence
+                            </td>
+                            <td><span style="color: var(--danger)">Type II Error ($\beta$)</span><br>False Negative</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example-box">
+                    <div class="example-title">Legal Analogy</div>
+                    <p><strong>$H_0$:</strong> Defendant is Innocent.</p>
+                    <ul>
+                        <li><strong>Type I Error:</strong> Convicting an innocent person. (Very bad, so we keep $\alpha$
+                            low).</li>
+                        <li><strong>Type II Error:</strong> Letting a guilty person go free.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="power">
+                <h2>Power of a Test ($1 - \beta$)</h2>
+                <p>The probability of correctly rejecting a false null hypothesis. In other words, the ability of the
+                    test to detect an effect if one actually exists.</p>
+                <p><strong>How to increase Power:</strong></p>
+                <ul>
+                    <li>Increase Sample Size ($n$).</li>
+                    <li>Increase Significance Level ($\alpha$) - but this increases Type I error risk.</li>
+                    <li>Reduce variability ($\sigma$).</li>
+                </ul>
+            </section>
+
+            <section id="p-value">
+                <h2>The P-Value Approach</h2>
+                <p>Instead of comparing Z-scores, we often compare probabilities.</p>
+                <div class="definition-box">
+                    <strong>P-Value:</strong> The probability of seeing data this extreme (or more extreme) assuming
+                    $H_0$ is true.
+                </div>
+                <p><strong>Decision Rule:</strong></p>
+                <ul>
+                    <li>If $P\text{-value} \le \alpha \rightarrow$ Reject $H_0$. (Result is statistically significant).
+                    </li>
+                    <li>If $P\text{-value} > \alpha \rightarrow$ Fail to Reject $H_0$.</li>
+                </ul>
+                <p><em>"If P is low, the Null must go."</em></p>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> A "False Positive" (detecting an effect that isn't there) corresponds to
+                        which error?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="true">Type I Error</li>
+                        <li class="quiz-option" data-correct="false">Type II Error</li>
+                        <li class="quiz-option" data-correct="false">Standard Error</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> If you want to increase the Power of your test without changing $\alpha$,
+                        what should you do?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Decrease sample size</li>
+                        <li class="quiz-option" data-correct="true">Increase sample size</li>
+                        <li class="quiz-option" data-correct="false">Increase variance</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Management | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Modules</h3>
+            <ul class="sidebar-nav">
+                <li><a href="linear-programming.html" class="sidebar-link">Linear Programming</a></li>
+                <li><a href="decision-theory.html" class="sidebar-link">Decision Theory</a></li>
+                <li><a href="game-theory.html" class="sidebar-link">Game Theory</a></li>
+                <li><a href="operations-research.html" class="sidebar-link">Operations Research</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Quantitative Management</h1>
+            <p class="lead">Applying mathematical models to business decision making. Also known as Management Science
+                or Operations Research.</p>
+
+            <div class="topic-grid">
+                <a href="linear-programming.html" class="card">
+                    <div class="card-icon"><i class="fas fa-border-all"></i></div>
+                    <h3>Linear Programming</h3>
+                    <p>Optimization of resources. Maximizing profit or minimizing cost under constraints.</p>
+                </a>
+                <a href="decision-theory.html" class="card">
+                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Decision Theory</h3>
+                    <p>Making choices under risk (probabilities known) and uncertainty (probabilities unknown).</p>
+                </a>
+                <a href="game-theory.html" class="card">
+                    <div class="card-icon"><i class="fas fa-chess"></i></div>
+                    <h3>Game Theory</h3>
+                    <p>Strategic interactions between competitors. Nash Equilibrium and Prisoner's Dilemma.</p>
+                </a>
+                <a href="operations-research.html" class="card">
+                    <div class="card-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Operations Research</h3>
+                    <p>Transportation, Assignment, and Inventory models (EOQ).</p>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

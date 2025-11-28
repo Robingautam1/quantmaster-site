@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Theory | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#environments" class="sidebar-link">Decision Environments</a></li>
+                <li><a href="#uncertainty" class="sidebar-link">Under Uncertainty</a></li>
+                <li><a href="#risk" class="sidebar-link">Under Risk (EMV)</a></li>
+                <li><a href="#trees" class="sidebar-link">Decision Trees</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Decision Theory</h1>
+            <p class="lead">A framework for making logical choices in difficult situations.</p>
+
+            <section id="environments">
+                <h2>Decision Environments</h2>
+                <ul>
+                    <li><strong>Certainty:</strong> We know exactly what will happen. (Rare).</li>
+                    <li><strong>Risk:</strong> We know the probabilities of outcomes.</li>
+                    <li><strong>Uncertainty:</strong> We don't know the probabilities.</li>
+                </ul>
+            </section>
+
+            <section id="uncertainty">
+                <h2>Decision Making under Uncertainty</h2>
+                <p>When we have no idea about probabilities, we use criteria based on our attitude:</p>
+                <ul>
+                    <li><strong>Maximax (Optimist):</strong> Choose the alternative with the best possible payoff. "Go
+                        for gold."</li>
+                    <li><strong>Maximin (Pessimist):</strong> Choose the alternative with the best "worst-case"
+                        scenario. "Play it safe."</li>
+                    <li><strong>Minimax Regret:</strong> Minimize the opportunity loss (regret).</li>
+                </ul>
+            </section>
+
+            <section id="risk">
+                <h2>Decision Making under Risk</h2>
+                <p>We use <strong>Expected Monetary Value (EMV)</strong>.</p>
+                <div class="formula-box">
+                    $$ EMV = \sum (Payoff \times Probability) $$
+                </div>
+                <p>Choose the alternative with the highest EMV.</p>
+            </section>
+
+            <section id="trees">
+                <h2>Decision Trees</h2>
+                <p>A visual map of decisions and outcomes. We solve it backwards (right to left) by calculating EMV at
+                    each node.</p>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> Which criterion would a pessimist use?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Maximax</li>
+                        <li class="quiz-option" data-correct="true">Maximin</li>
+                        <li class="quiz-option" data-correct="false">EMV</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

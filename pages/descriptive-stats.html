@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive Statistics | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#central" class="sidebar-link">Central Tendency</a></li>
+                <li><a href="#dispersion" class="sidebar-link">Dispersion</a></li>
+                <li><a href="#shape" class="sidebar-link">Shape (Skew/Kurtosis)</a></li>
+                <li><a href="#viz" class="sidebar-link">Visualization</a></li>
+                <li><a href="#quiz" class="sidebar-link">Test Yourself</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Descriptive Statistics</h1>
+            <p class="lead">Before we can analyze data, we must describe it. Where is the center? How spread out is it?
+            </p>
+
+            <section id="central">
+                <h2>Measures of Central Tendency</h2>
+                <ul>
+                    <li><strong>Mean ($\bar{x}$):</strong> The average. Sensitive to outliers.</li>
+                    <li><strong>Median:</strong> The middle value. Robust to outliers.</li>
+                    <li><strong>Mode:</strong> The most frequent value.</li>
+                </ul>
+                <div class="formula-box">
+                    $$ \bar{x} = \frac{\sum x}{n} $$
+                </div>
+            </section>
+
+            <section id="dispersion">
+                <h2>Measures of Dispersion</h2>
+                <p>How spread out is the data?</p>
+                <ul>
+                    <li><strong>Range:</strong> Max - Min.</li>
+                    <li><strong>Variance ($s^2$):</strong> Average squared deviation from the mean.</li>
+                    <li><strong>Standard Deviation ($s$):</strong> Square root of variance. The average distance from
+                        the mean.</li>
+                    <li><strong>Coefficient of Variation (CV):</strong> Relative variability. $CV = (s/\bar{x}) \times
+                        100\%$.</li>
+                </ul>
+                <div class="formula-box">
+                    $$ s = \sqrt{\frac{\sum(x - \bar{x})^2}{n-1}} $$
+                </div>
+            </section>
+
+            <section id="shape">
+                <h2>Shape of Distribution</h2>
+                <ul>
+                    <li><strong>Skewness:</strong> Measure of asymmetry.
+                        <ul>
+                            <li>Positive Skew: Tail on the right (Mean > Median).</li>
+                            <li>Negative Skew: Tail on the left (Mean < Median).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kurtosis:</strong> Measure of "tailedness" (peakedness).
+                        <ul>
+                            <li>Leptokurtic: High peak, fat tails.</li>
+                            <li>Platykurtic: Flat peak, thin tails.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="viz">
+                <h2>Visualization</h2>
+                <p><strong>Box Plot (Box-and-Whisker):</strong> Shows the 5-number summary (Min, Q1, Median, Q3, Max).
+                </p>
+                <p><strong>Histogram:</strong> Shows frequency distribution.</p>
+            </section>
+
+            <section id="quiz" class="quiz-section">
+                <h2>Test Yourself</h2>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> Which measure of central tendency is most affected by extreme outliers?</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="true">Mean</li>
+                        <li class="quiz-option" data-correct="false">Median</li>
+                        <li class="quiz-option" data-correct="false">Mode</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> If Mean > Median, the distribution is likely:</p>
+                    <ul class="quiz-options">
+                        <li class="quiz-option" data-correct="false">Symmetric</li>
+                        <li class="quiz-option" data-correct="true">Positively Skewed (Right)</li>
+                        <li class="quiz-option" data-correct="false">Negatively Skewed (Left)</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>
