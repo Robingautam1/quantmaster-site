@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator | QuantMaster</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/scientific-calculator.js" defer></script>
+    <style>
+        .sci-calc-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .calc-display {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: right;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .calc-history {
+            color: #64748b;
+            font-size: 0.9rem;
+            min-height: 1.2em;
+            margin-bottom: 5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .calc-current {
+            color: #0f172a;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .calc-btn {
+            border: none;
+            border-radius: 12px;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .calc-btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn-num {
+            background: #334155;
+            color: white;
+        }
+
+        .btn-num:hover {
+            background: #475569;
+        }
+
+        .btn-op {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .btn-op:hover {
+            background: #0284c7;
+        }
+
+        .btn-fn {
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .btn-fn:hover {
+            background: #1e293b;
+            color: white;
+        }
+
+        .btn-eq {
+            background: #10b981;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .btn-eq:hover {
+            background: #059669;
+        }
+
+        .btn-clear {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background: #dc2626;
+        }
+
+        .mode-toggle {
+            grid-column: span 5;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 8px;
+            background: #0f172a;
+            color: #64748b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .mode-btn.active {
+            background: #0ea5e9;
+            color: white;
+            border-color: #0ea5e9;
+        }
+
+        /* Instructions Styling */
+        .instructions-section {
+            margin-top: 4rem;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .key-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .key-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: #0f172a;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-chart-line"></i> QuantMaster
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <div class="nav-link">Statistics <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="basics-of-statistics.html" class="dropdown-link">Basics</a>
+                        <a href="descriptive-stats.html" class="dropdown-link">Descriptive Stats</a>
+                        <a href="probability.html" class="dropdown-link">Probability</a>
+                        <a href="distributions.html" class="dropdown-link">Distributions</a>
+                        <a href="sampling.html" class="dropdown-link">Sampling</a>
+                        <a href="estimation.html" class="dropdown-link">Estimation</a>
+                        <a href="hypothesis-testing.html" class="dropdown-link">Hypothesis Testing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Advanced <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="anova.html" class="dropdown-link">ANOVA</a>
+                        <a href="regression-correlation.html" class="dropdown-link">Regression</a>
+                        <a href="multiple-regression.html" class="dropdown-link">Multiple Regression</a>
+                        <a href="forecasting.html" class="dropdown-link">Forecasting</a>
+                        <a href="chi-square-tests.html" class="dropdown-link">Chi-Square Tests</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Quant Mgmt <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="quantitative-management.html" class="dropdown-link">Overview</a>
+                        <a href="linear-programming.html" class="dropdown-link">Linear Programming</a>
+                        <a href="decision-theory.html" class="dropdown-link">Decision Theory</a>
+                        <a href="game-theory.html" class="dropdown-link">Game Theory</a>
+                        <a href="operations-research.html" class="dropdown-link">Operations Research</a>
+                        <a href="project-management.html" class="dropdown-link">Project Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Tools <i class="fas fa-chevron-down"></i></div>
+                    <div class="dropdown-menu">
+                        <a href="calculators.html" class="dropdown-link">Calculators</a>
+                        <a href="visualizations.html" class="dropdown-link">Visualizations</a>
+                        <a href="auto-graph.html" class="dropdown-link">Auto Graph</a>
+                        <a href="scientific-calculator.html" class="dropdown-link">Scientific Calculator</a>
+                        <a href="formulas-sheet.html" class="dropdown-link">Formulas Sheet</a>
+                        <a href="tables.html" class="dropdown-link">Statistical Tables</a>
+                        <a href="glossary.html" class="dropdown-link">Glossary</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <aside class="sidebar">
+            <h3>Tools</h3>
+            <ul class="sidebar-nav">
+                <li><a href="calculators.html" class="sidebar-link">Calculators</a></li>
+                <li><a href="visualizations.html" class="sidebar-link">Visualizations</a></li>
+                <li><a href="auto-graph.html" class="sidebar-link">Auto Graph</a></li>
+                <li><a href="scientific-calculator.html" class="sidebar-link active">Scientific Calculator</a></li>
+                <li><a href="formulas-sheet.html" class="sidebar-link">Formulas Sheet</a></li>
+                <li><a href="tables.html" class="sidebar-link">Statistical Tables</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Scientific Calculator</h1>
+            <p class="lead">Advanced mathematical computations for statistics and engineering.</p>
+
+            <div class="sci-calc-container">
+                <div class="calc-display">
+                    <div class="calc-history" id="history"></div>
+                    <div class="calc-current" id="display">0</div>
+                </div>
+
+                <div class="mode-toggle">
+                    <button class="mode-btn active" id="deg-btn" onclick="setMode('deg')">DEG</button>
+                    <button class="mode-btn" id="rad-btn" onclick="setMode('rad')">RAD</button>
+                </div>
+
+                <div class="calc-grid">
+                    <!-- Row 1 -->
+                    <button class="calc-btn btn-fn" onclick="handleFunc('sin')">sin</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('cos')">cos</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('tan')">tan</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('log')">log</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('ln')">ln</button>
+
+                    <!-- Row 2 -->
+                    <button class="calc-btn btn-fn" onclick="handleFunc('asin')">sin⁻¹</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('acos')">cos⁻¹</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('atan')">tan⁻¹</button>
+                    <button class="calc-btn btn-fn" onclick="insert('(')">(</button>
+                    <button class="calc-btn btn-fn" onclick="insert(')')">)</button>
+
+                    <!-- Row 3 -->
+                    <button class="calc-btn btn-fn" onclick="handleFunc('sqrt')">√</button>
+                    <button class="calc-btn btn-fn" onclick="insert('^')">xʸ</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('fact')">n!</button>
+                    <button class="calc-btn btn-clear" onclick="clearEntry()">CE</button>
+                    <button class="calc-btn btn-clear" onclick="clearAll()">AC</button>
+
+                    <!-- Row 4 -->
+                    <button class="calc-btn btn-num" onclick="insert('7')">7</button>
+                    <button class="calc-btn btn-num" onclick="insert('8')">8</button>
+                    <button class="calc-btn btn-num" onclick="insert('9')">9</button>
+                    <button class="calc-btn btn-op" onclick="insert('/')">÷</button>
+                    <button class="calc-btn btn-fn" onclick="insert('Math.PI')">π</button>
+
+                    <!-- Row 5 -->
+                    <button class="calc-btn btn-num" onclick="insert('4')">4</button>
+                    <button class="calc-btn btn-num" onclick="insert('5')">5</button>
+                    <button class="calc-btn btn-num" onclick="insert('6')">6</button>
+                    <button class="calc-btn btn-op" onclick="insert('*')">×</button>
+                    <button class="calc-btn btn-fn" onclick="insert('Math.E')">e</button>
+
+                    <!-- Row 6 -->
+                    <button class="calc-btn btn-num" onclick="insert('1')">1</button>
+                    <button class="calc-btn btn-num" onclick="insert('2')">2</button>
+                    <button class="calc-btn btn-num" onclick="insert('3')">3</button>
+                    <button class="calc-btn btn-op" onclick="insert('-')">−</button>
+                    <button class="calc-btn btn-fn" onclick="handleFunc('sq')">x²</button>
+
+                    <!-- Row 7 -->
+                    <button class="calc-btn btn-num" onclick="insert('0')">0</button>
+                    <button class="calc-btn btn-num" onclick="insert('.')">.</button>
+                    <button class="calc-btn btn-eq" onclick="calculate()">=</button>
+                    <button class="calc-btn btn-op" onclick="insert('+')">+</button>
+                </div>
+            </div>
+
+            <div class="instructions-section">
+                <h2><i class="fas fa-info-circle" style="color: var(--accent);"></i> How to Use</h2>
+                <p>This scientific calculator supports standard arithmetic, trigonometric functions, and advanced
+                    mathematical operations.</p>
+
+                <div class="key-group">
+                    <h3>Trigonometry</h3>
+                    <p>Use the <span class="key-badge">DEG</span> / <span class="key-badge">RAD</span> toggle to switch
+                        between Degree and Radian modes.</p>
+                    <ul>
+                        <li><span class="key-badge">sin</span>, <span class="key-badge">cos</span>, <span
+                                class="key-badge">tan</span>: Standard trigonometric functions.</li>
+                        <li><span class="key-badge">sin⁻¹</span>, <span class="key-badge">cos⁻¹</span>, <span
+                                class="key-badge">tan⁻¹</span>: Inverse trigonometric functions (arcsin, arccos,
+                            arctan).</li>
+                    </ul>
+                </div>
+
+                <div class="key-group">
+                    <h3>Powers & Roots</h3>
+                    <ul>
+                        <li><span class="key-badge">xʸ</span>: Power function. Example: 2 <span
+                                class="key-badge">xʸ</span> 3 = 8.</li>
+                        <li><span class="key-badge">√</span>: Square root.</li>
+                        <li><span class="key-badge">x²</span>: Square the current number.</li>
+                    </ul>
+                </div>
+
+                <div class="key-group">
+                    <h3>Logarithms</h3>
+                    <ul>
+                        <li><span class="key-badge">log</span>: Base-10 logarithm.</li>
+                        <li><span class="key-badge">ln</span>: Natural logarithm (base-e).</li>
+                    </ul>
+                </div>
+
+                <div class="key-group">
+                    <h3>Other Functions</h3>
+                    <ul>
+                        <li><span class="key-badge">n!</span>: Factorial. Example: 5! = 120.</li>
+                        <li><span class="key-badge">π</span>: Pi constant (approx 3.14159).</li>
+                        <li><span class="key-badge">e</span>: Euler's number (approx 2.71828).</li>
+                        <li><span class="key-badge">AC</span>: All Clear - Resets everything.</li>
+                        <li><span class="key-badge">CE</span>: Clear Entry - Clears only the current number.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; color: #94a3b8;">
+            <p>&copy; <span id="year"></span> QuantMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
